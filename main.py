@@ -81,9 +81,9 @@ async def process_data(request: dict):
         # Create response
         response = {
             "is_success": True,
-            "user_id": "john_doe_17091999",  # Replace with your actual details
-            "email": "john@xyz.com",  # Replace with your actual email
-            "roll_number": "ABCD123",  # Replace with your actual roll number
+            "user_id": "adi_poduval_5",
+            "email": "adityapoduval2022@vitbhopal.ac.in", 
+            "roll_number": "22BCE11151",
             "odd_numbers": odd_numbers,
             "even_numbers": even_numbers,
             "alphabets": alphabets,
