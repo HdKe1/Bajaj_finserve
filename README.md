@@ -5,7 +5,7 @@ A REST API built with FastAPI that processes arrays and categorizes data into nu
 
 ## 🚀 Live Demo
 
-**API Endpoint**: [[https://bajaj-finserv-27o3.onrender.com/bfhl](https://bajaj-finserv-27o3.onrender.com/bfhl)  ](https://bajaj-finserve-27o3.onrender.com/bfhl)
+**API Endpoint**: https://bajaj-finserve-27o3.onrender.com/bfhl
 **API Documentation**: [https://bajaj-finserv-27o3.onrender.com/docs](https://bajaj-finserv-27o3.onrender.com/docs)
 
 ## 📋 Features
