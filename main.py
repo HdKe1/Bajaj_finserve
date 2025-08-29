@@ -37,9 +37,9 @@ def create_concat_string(alphabets: list) -> str:
     result = ""
     for i, char in enumerate(all_chars):
         if i % 2 == 0:
-            result += char.lower()
+            result += char.upper()  # First character (index 0) should be uppercase
         else:
-            result += char.upper()
+            result += char.lower()  # Second character (index 1) should be lowercase
     
     return result
 
@@ -96,6 +96,47 @@ async def process_data(request: dict):
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
+
+@app.get("/bfhl")
+async def get_operation_code():
+    """GET endpoint showing the operation logic"""
+    return {
+        "operation_code": 1,
+        "logic": {
+            "description": "POST /bfhl processes an array and returns categorized data",
+            "input": "JSON with 'data' array containing mixed alphanumeric and special characters",
+            "processing": {
+                "numbers": "Separated into odd and even arrays (returned as strings)",
+                "alphabets": "Converted to uppercase and stored in alphabets array", 
+                "special_characters": "Non-alphanumeric characters stored separately",
+                "sum": "Sum of all numeric values (returned as string)",
+                "concat_string": "All alphabets joined, reversed, with alternating lowercase/uppercase"
+            },
+            "output": {
+                "is_success": "Boolean status",
+                "user_id": "Format: firstname_lastname_ddmmyyyy", 
+                "email": "User email address",
+                "roll_number": "College roll number",
+                "odd_numbers": "Array of odd numbers as strings",
+                "even_numbers": "Array of even numbers as strings", 
+                "alphabets": "Array of uppercase alphabetic characters",
+                "special_characters": "Array of special characters",
+                "sum": "Sum of all numbers as string",
+                "concat_string": "Processed alphabetic string (reversed with alternating UPPER/lower case starting with uppercase)"
+            },
+            "example": {
+                "input": {"data": ["a","1","334","4","R","$"]},
+                "output": {
+                    "odd_numbers": ["1"],
+                    "even_numbers": ["334","4"], 
+                    "alphabets": ["A","R"],
+                    "special_characters": ["$"],
+                    "sum": "339",
+                    "concat_string": "Ra"
+                }
+            }
+        }
+    }
 
 @app.get("/")
 async def root():
